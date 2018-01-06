@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Từ điển Toán học Anh Việt"/>
+    <meta name="author" content="">
+    <meta property="og:title" content="Dictmate"/>
+    <meta property="og:image" content="http://datamate.ws/screenshots/dictmate/dictmate.png"/>
+    <meta property="og:site_name" content="Dictmate"/>
+    <meta property="og:description" content="Từ điển Toán học Anh − Việt"/>
+    <title>Từ điển Toán học Anh Việt</title>
+    <link rel="icon" href="{{ url_for('static', filename='assets/images/favicon.ico') }}" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/favicon.ico') }}" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Exo+2:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='assets/plugins/bootstrap_4_0_0_beta_2/css/bootstrap.min.css') }}"
+          media="all">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='assets/plugins/font_awesome_4_7_0/css/font-awesome.min.css') }}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/arsho.css') }}">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <span class="lead title"><i class="fa fa-language"></i>
+            Từ điển Toán học
+        </span>
+        <p class="subtitle">Phát triển bởi Phan Văn Phương - THPT Xuân Trường B - Nam Định</p>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card bg-light mb-3 content">
+                <h5 class="card-header">
+                    <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-book"></i>
+                            </span>
+                        <input type="text" class="form-control" id="search_word_text"
+                               placeholder="Search a word and press enter"/>
+                        <span class="input-group-btn">
+                                <button class="btn btn-secondary" id="search_btn" type="button">
+                                <i class="fa fa-search"></i> Tìm
+                                </button>
+                        </span>
+                        <span class="input-group-btn">
+                            <button class="btn btn-outline-secondary" id="clear_btn">
+                            <i class="fa fa-eraser"></i> Xoá lịch sử
+                            </button>
+                        </span>
+                    </div>
+                </h5>
+                <div class="card-body message_area" id="message_area"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="text-center">
+        <small>
+            Phát triển bởi <a href="https://github.com/hocbaicungcon/" target="_blank">hocbaicungcon</a> 
+            dựa trên phiên bản của tác giả 
+            <a href="https://github.com/arsho/" target="_blank">Ahmedur Rahman Shovon.</a>
+        </small>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script type="text/javascript" src="{{ url_for('static', filename='assets/plugins/jquery_min_1_12_4.js') }}"></script>
+<!-- Bootstrap -->
+<script type="text/javascript"
+        src="{{ url_for('static', filename='assets/plugins/bootstrap_4_0_0_beta_2/js/bootstrap.bundle.min.js') }}"></script>
+<!-- Custom -->
+<script type="text/javascript" src="{{ url_for('static', filename='assets/js/arsho.js') }}"></script>
+</body>
+</html>

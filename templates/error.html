@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Dictmate: English to English and English to Bangla Dictionary"/>
+    <meta name="author" content="Ahmedur Rahman Shovon">
+    <meta property="og:title" content="Dictmate"/>
+    <meta property="og:image" content="http://datamate.ws/screenshots/dictmate/dictmate.png"/>
+    <meta property="og:site_name" content="Dictmate"/>
+    <meta property="og:description" content="Dictmate: English to English and English to Bangla Dictionary"/>
+    <title>Dictmate</title>
+    <link rel="icon" href="{{ url_for('static', filename='assets/images/favicon.ico') }}" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/favicon.ico') }}" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Exo+2:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='assets/plugins/bootstrap_4_0_0_beta_2/css/bootstrap.min.css') }}"
+          media="all">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='assets/plugins/font_awesome_4_7_0/css/font-awesome.min.css') }}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/arsho.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/cover.css') }}">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="site-wrapper">
+    <div class="site-wrapper-inner">
+        <div class="cover-container">
+            <main role="main" class="inner cover">
+                <h1 class="cover-heading">
+                    <i class="fa fa-frown-o datamate_red fa-4x"></i> <br>
+                    {%- if error_code is defined -%}
+                    {{ error_code }}
+                    {%- else -%}
+                    Lỗi không xác định!
+                    {%- endif -%}
+                </h1>
+                <p class="lead">
+                    {% if error_message is defined -%}
+                    {{ error_message }}
+                    {%- else -%}
+                    Xin lỗi, đã xuất hiện lỗi!
+                    {%- endif -%}
+                </p>
+                <p class="lead">
+                    <a href="{{ url_for('show_index') }}" class="btn btn-lg btn-secondary">
+                        <i class="fa fa-home"></i> Về trang chủ
+                    </a>
+                </p>
+            </main>
+
+            <footer class="mastfoot">
+                <div class="inner">
+                    <p>
+                         Phát triển bởi
+                        <a href="https://github.com/hocbaicungcon/" target="_blank">hocbaicungcon</a>
+                        dựa trên phiên bản của tác giả
+                        <a href="https://github.com/arsho/" target="_blank">Ahmedur Rahman Shovon.</a>
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+
+<!-- jQuery -->
+<script type="text/javascript" src="{{ url_for('static', filename='assets/plugins/jquery_min_1_12_4.js') }}"></script>
+<!-- Bootstrap -->
+<script type="text/javascript"
+        src="{{ url_for('static', filename='assets/plugins/bootstrap_4_0_0_beta_2/js/bootstrap.bundle.min.js') }}"></script>
+<!-- Custom -->
+<script type="text/javascript" src="{{ url_for('static', filename='assets/js/arsho.js') }}"></script>
+</body>
+</html>
