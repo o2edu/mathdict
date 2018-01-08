@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import json, os, re
 from flask import Flask, render_template, request, url_for, redirect
 
@@ -8,8 +7,8 @@ SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 english_json_url = os.path.join(SITE_ROOT, "static", "math_dict.json")
 english_data = json.load(open(english_json_url, encoding="utf8"))
 
-# bangla_json_url = os.path.join(SITE_ROOT, "static", "bangla_dictionary.json")
-# bangla_data = json.load(open(bangla_json_url))
+# bangla_json_url = os.path.join(SITE_ROOT, "static", "math_dict.json")
+# bangla_data = json.load(open(bangla_json_url, encoding="utf8"))
 
 def clean_english_value(value):
     value = value.replace("\n\n", "<br>")
@@ -43,16 +42,24 @@ def fetch_word():
         word = request.form.get("word")
         word = word.strip()
         if word == '':
-            return ''
+            return '<i> Xin mời nhập từ hoặc cụm từ cần tìm... </i>'
         word_lower = word.lower()
+        bangla_value = ''
         english_value = ''
         if word_lower in english_data:
             english_value = clean_english_value(english_data[word_lower])
-            # if word_lower in bangla_data:
-            #     bangla_value = clean_bangla_value(bangla_data[word_lower])
-        return english_value#+ bangla_value
-    else:
-        return redirect(url_for('show_index'))
+            return '<ul> <li><font face="calibri" color="#8217c4">' + english_value + '</font></li><ul>'
+        else:
+            keys_list = [k for k, v in english_data.items() if word_lower in v]
+            if keys_list == []:
+                return '<ul> <li><font face="calibri" color="#8217c4">' + "Không tìm thấy, liệu bạn có gõ sai không?!" + '</font></li><ul>'
+            temp ="Tìm thấy " + str(len(keys_list)) + " kết quả: <br /><ul>"
+            for i in keys_list:
+                temp += '<li><font face="calibri">' + i + ':</font> <font face="calibri" color="#8217c4">' + clean_english_value(english_data[i]) + '</font></li>'
+            temp += "</ul>"
+            return temp
+    # else:
+    #     return redirect(url_for('show_index'))
 
 @app.route('/')
 @app.route('/index')
