@@ -44,7 +44,7 @@ def fetch_word():
         if word == '':
             return '<i> Xin mời nhập từ hoặc cụm từ cần tìm... </i>'
         word_lower = word.lower()
-        bangla_value = ''
+        # bangla_value = ''
         english_value = ''
         if word_lower in english_data:
             english_value = clean_english_value(english_data[word_lower])
@@ -55,7 +55,7 @@ def fetch_word():
                 return '<ul> <li><font face="calibri" color="#1a1a00">' + "Không tìm thấy, liệu bạn có gõ sai không?!" + '</font></li><ul>'
             temp ="Tìm thấy " + str(len(keys_list)) + " kết quả: <br /><ul>"
             for i in keys_list:
-                temp += '<li><font face="calibri">' + i + ':</font> <font face="calibri" color="#1a1a00">' + clean_english_value(english_data[i]) + '</font></li>'
+                temp += '<li><font face="calibri" color = "#131377">' + i + ':</font> <font face="calibri" color="#1a1a00">' + clean_english_value(english_data[i]) + '</font></li>'
             temp += "</ul>"
             return temp
     # else:
