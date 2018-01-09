@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, url_for, redirect
 app = Flask(__name__)
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 
-english_json_url = os.path.join(SITE_ROOT, "static", "math_dict.json")
+english_json_url = os.path.join(SITE_ROOT, "static", "eng_dict.json")
 english_data = json.load(open(english_json_url, encoding="utf8"))
 
 # bangla_json_url = os.path.join(SITE_ROOT, "static", "math_dict.json")
@@ -48,14 +48,14 @@ def fetch_word():
         english_value = ''
         if word_lower in english_data:
             english_value = clean_english_value(english_data[word_lower])
-            return '<ul> <li><font face="calibri" color="#8217c4">' + english_value + '</font></li><ul>'
+            return '<ul> <li><font face="calibri" color="#1a1a00">' + english_value + '</font></li><ul>'
         else:
             keys_list = [k for k, v in english_data.items() if word_lower in v]
             if keys_list == []:
-                return '<ul> <li><font face="calibri" color="#8217c4">' + "Không tìm thấy, liệu bạn có gõ sai không?!" + '</font></li><ul>'
+                return '<ul> <li><font face="calibri" color="#1a1a00">' + "Không tìm thấy, liệu bạn có gõ sai không?!" + '</font></li><ul>'
             temp ="Tìm thấy " + str(len(keys_list)) + " kết quả: <br /><ul>"
             for i in keys_list:
-                temp += '<li><font face="calibri">' + i + ':</font> <font face="calibri" color="#8217c4">' + clean_english_value(english_data[i]) + '</font></li>'
+                temp += '<li><font face="calibri">' + i + ':</font> <font face="calibri" color="#1a1a00">' + clean_english_value(english_data[i]) + '</font></li>'
             temp += "</ul>"
             return temp
     # else:
