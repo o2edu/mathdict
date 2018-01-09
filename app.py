@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, url_for, redirect
 app = Flask(__name__)
 SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 
-english_json_url = os.path.join(SITE_ROOT, "static", "eng_dict.json")
+english_json_url = os.path.join(SITE_ROOT, "static", "math_dict.json")
 english_data = json.load(open(english_json_url, encoding="utf8"))
 
 # bangla_json_url = os.path.join(SITE_ROOT, "static", "math_dict.json")
